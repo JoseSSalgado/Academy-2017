@@ -1,0 +1,93 @@
+Ejercicio de la calculadora
+class calc(object):
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+    def my_suma(self):
+        suma = self.a + self.b
+        print "suma es", suma
+    def restar(self):
+        resta = self.a - self.b
+        print "resta es", resta
+    def mult(self):
+        multa = self.a * self.b
+        print "multiplicacion es", multa
+    def divi(self):
+        divid = self.a / self.b
+        print "division es", divid
+      #return suma
+print "Bienvenido/a a la calculadora "
+input = int(raw_input("que quieres hacer? sumar, restar, multi o dividir?,1 para sumar, 2 para restar, 3 multi, 4 dividir"))
+a = int(raw_input("cuanto es el valor de a"))
+b = int(raw_input("cuanto es el valor de b"))
+C  = calc(a,b)
+if input ==1:
+    C.my_suma()
+elif input ==2:
+    C.restar()
+elif input == 3:
+    C.mult()
+else:
+    C.divi()
+
+ejercicio lista
+
+mylist = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+print mylist
+del mylist[1::2]
+print mylist
+del mylist[0]
+print mylist
+ejercicio lista animalitos
+zoo = ['elephant','zebra', 'tiger', 'lion']
+#zoo.append['cheetah']
+print zoo
+zoo.append('cheetah')
+print zoo
+print len (zoo)
+zoo.remove('lion')
+print zoo
+zoo.insert(3,'conejito')
+print zoo
+zoo.remove('zebra')
+print zoo
+
+ejercicio tupla
+number = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+print number
+number2 = number [1::2]
+print number2
+
+ejercicio diccionario
+gente = {'Humberto': '28-dic', ' Bofo':'29-ene','giselle':'30-feb','alan':'15-marzo'}
+print "me se los cumples de  ", gente.keys()
+name = raw_input("de quien quieres saber fecha de cumple?")
+print name
+for age in gente.values():
+    if name == gente:
+        age = gente[name]
+print 'cumple el', age
+ejercicio diccionario cambiar key
+zoo = {'unicorn': 'cotton candy house ', 'sloth':'rainforest exhibit','bengal tiger':'jungle house','atlantic puffin':'arctic exhibit','rockhopper penguin':'artic exhibit' }
+print zoo
+del zoo ['sloth']
+print zoo
+del zoo['bengal tiger']
+print zoo
+zoo ['rockhopper penguin'] = 'pacific ocean'
+print zoo
+
+ejercicio cuenta letras
+dic = {}
+s=raw_input('escribe una palabra y contare sus letras')
+for s in s:
+    dic[s] = dic.get(s,0)+1
+print '\n'.join(['%s,%s' % (k, v) for k, v in dic.items()])
+ejercicio conexion
+
+Import sqlite3
+conn = sqlite3.connect('school.db')
+c= conn.cursor()
+#c.execute("select first_name,last_name from students left join courses on students.id = courses.student_id")
+c.execute("select * from students left join student_courses on students.id = student_courses.student_id left join courses on student_courses.course_id = courses.id")
+print c.fetchall()
